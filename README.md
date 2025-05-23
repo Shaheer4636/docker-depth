@@ -71,6 +71,10 @@ docker run --rm -v ${PWD}:/workspace `
 2. It is ideal for rootless and scriptable builds, often used in automated pipelines or Podman-based environments.
 3. Since we are using Amazon Linux without native Buildah support, we ran it inside a privileged Docker container and exported the image as a .tar file.
 4. The image was then loaded into Docker on the host for testing and run like a regular Docker image.
-5. 
+5. The command used to rerun inside buildah container:
+
+```bash
+buildah push sample-python-app docker-archive:/workspace/sample-python-app.tar:sample-python-app:latest
+```
 ![image](https://github.com/user-attachments/assets/30c01332-4082-4637-a3f0-ce56318b6aed)
 
